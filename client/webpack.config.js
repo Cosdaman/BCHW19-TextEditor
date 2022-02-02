@@ -10,9 +10,6 @@ module.exports = () => {
       main: './src/js/index.js',
       install: './src/js/install.js'
     },
-    devServer: {
-      hot: 'only',
-    },
     plugins: [
       new HtmlWebpackPlugin({
         template: './index.html',
@@ -20,7 +17,7 @@ module.exports = () => {
       }),
       new InjectManifest({
         swSrc: './src-sw.js',
-        swDest: 'service-worker.js',
+        swDest: 'src-sw.js',
       }),
       new WebpackPwaManifest({
         fingerprints: false,
@@ -52,7 +49,7 @@ module.exports = () => {
           use: ['style-loader', 'css-loader'],
         },
         {
-          test: /\.(png|svg|jpg|jpeg|gif|ico)$/i,
+          test: /\.(png|svg|jpg|jpeg|gif)$/i,
           type: 'asset/resource',
         },
         {
